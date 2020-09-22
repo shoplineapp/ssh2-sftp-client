@@ -756,7 +756,7 @@ class SftpClient {
         targetType.writeFile
       );
       this.debugMsg('put remote path info ', pathInfo);
-      if (!pathInfo.valid) {
+      if (!pathInfo.valid && !options.bypassPathCheck) {
         let e = utils.formatError(pathInfo.msg, 'put', pathInfo.code);
         throw e;
       }
